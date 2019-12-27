@@ -211,7 +211,13 @@ async function predictOneTitle(){
   datalist['year'] = media['startDate']['year'];
   datalist['popularity'] = media['popularity'];
   //datalist['source'] = data['source'];
-  datalist['title'] = media['title'][localStorage.getItem("language")];
+  if(media['title'][localStorage.getItem("language")]){
+    datalist['title'] = media['title'][localStorage.getItem("language")];
+  }
+  else{
+    datalist['title'] = media['title']['romaji'];
+  }
+
 
 
   var test = await createMatForOne([{mediaId:id}], datalist);
@@ -232,7 +238,13 @@ async function predictOneTitle(){
   var result = {};
   result["image"] = '<a href="https://anilist.co/anime/'+id+'" target="_blank"><img src="'+media["coverImage"]["large"]+'" height="150" width="100" style="border-radius:5px;"></a>' ;
   //temp["mediaId"] = plan[i]["mediaId"];
-  result["title"] = media["title"][localStorage.getItem("language")];
+  if(media["title"][localStorage.getItem("language")]){
+    result["title"] = media["title"][localStorage.getItem("language")];
+  }
+  else{
+    result["title"] = media["title"]['romaji'];
+  }
+
   result["prediction"] = Math.round(((prediction[0]))*100)/100;
 
   createTable([result], $(".result"));
@@ -545,7 +557,13 @@ async function alterMediaData(listJ, id, data){
         listJ[id.toString()]['year'] = data['startDate']['year'];
         listJ[id.toString()]['popularity'] = data['popularity'];
         //listJ[id.toString()]['source'] = data['source'];
-        listJ[id.toString()]['title'] = data['title'][localStorage.getItem("language")];
+        if (data['title'][localStorage.getItem("language")]){
+          listJ[id.toString()]['title'] = data['title'][localStorage.getItem("language")];
+        }
+        else{
+          listJ[id.toString()]['title'] = data['title']['romaji'];
+        }
+
 
         //listJ[id.toString()]['tags'] = await createTagList(data['tags']);
 
