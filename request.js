@@ -1,4 +1,3 @@
-//var username = "velvetPhos";
 /*
 var tagList = ["Amnesia"
       ,"Anti-Hero"
@@ -92,9 +91,9 @@ $(document).ready(function(){$('.help').click(addHelp)});
 $(document).ready(function(){
   if (!localStorage.getItem("username")){
     //$(".input").append('<div style="font-size:45px;">Enter Your Username:</div>');
-    $(".input").append('<input type="text" id="input" class="userName" placeholder="Enter Your Username" style="background-color:rgb(34,39,51);border-block-color:transparent;border-inline-color:transparent;-webkit-border-radius:20px;height:140px;width:590px;font-size:50pt;color:#EEE;padding:20px;margin-top: 17%;">');
+    $(".input").append('<input type="text" id="input" class="userName" placeholder="Enter Your Username" style="background-color:rgb(34,39,51);border-block-color:transparent;border-inline-color:transparent;border-color: transparent;-webkit-border-radius:20px;height:140px;width:590px;font-size:50pt;color:#EEE;padding:20px;margin-top: 17%;">');
     $(".input").append('<br id="input">');
-    $(".input").append('<button type="button" id="input" onclick="fetchALdata()" class="datafetchfirst" style="background-color:rgb(34,39,51);width:250px;height:60px;font-size:40px;margin-top:30px;border-radius:15px;border-block-color:transparent;border-inline-color:transparent;color:#999;">Get Started!</button>');
+    $(".input").append('<button type="button" id="input" onclick="fetchALdata()" class="datafetchfirst" style="background-color:rgb(34,39,51);width:250px;height:60px;font-size:40px;margin-top:30px;border-radius:15px;border-block-color:transparent;border-inline-color:transparent;border-color: transparent;color:#999;">Get Started!</button>');
   }
   else {
     addAvator();
