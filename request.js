@@ -162,7 +162,7 @@ function createMatForOne(id, datalist){
   var result = [];
   for(var j=0; j<basicFeatures.length; j++){
     for(var k=1; k<order; k++){
-      if(datalist[basicFeatures[j]]){
+      if(datalist[basicFeatures[j]]!=null){
         result.push(1*Math.pow(datalist[basicFeatures[j]], k/step));
       }
       else{
@@ -211,7 +211,7 @@ async function predictOneTitle(){
   datalist['year'] = media['startDate']['year'];
   datalist['popularity'] = media['popularity'];
   //datalist['source'] = data['source'];
-  if(media['title'][localStorage.getItem("language")]){
+  if(media['title'][localStorage.getItem("language")]!=null){
     datalist['title'] = media['title'][localStorage.getItem("language")];
   }
   else{
@@ -238,7 +238,7 @@ async function predictOneTitle(){
   var result = {};
   result["image"] = '<a href="https://anilist.co/anime/'+id+'" target="_blank"><img src="'+media["coverImage"]["large"]+'" height="150" width="100" style="border-radius:5px;"></a>' ;
   //temp["mediaId"] = plan[i]["mediaId"];
-  if(media["title"][localStorage.getItem("language")]){
+  if(media["title"][localStorage.getItem("language")]!=null){
     result["title"] = media["title"][localStorage.getItem("language")];
   }
   else{
@@ -267,7 +267,7 @@ function createMat(list){
     for(var j=0; j<basicFeatures.length; j++){
 
       for(var k=1; k<order; k++){
-        if(listD[list[i]["mediaId"]][basicFeatures[j]]){
+        if(listD[list[i]["mediaId"]][basicFeatures[j]]!=null){
           temp.push(1*Math.pow(listD[list[i]["mediaId"]][basicFeatures[j]], k/step));
         }
         else{
@@ -557,7 +557,7 @@ async function alterMediaData(listJ, id, data){
         listJ[id.toString()]['year'] = data['startDate']['year'];
         listJ[id.toString()]['popularity'] = data['popularity'];
         //listJ[id.toString()]['source'] = data['source'];
-        if (data['title'][localStorage.getItem("language")]){
+        if (data['title'][localStorage.getItem("language")]!=null){
           listJ[id.toString()]['title'] = data['title'][localStorage.getItem("language")];
         }
         else{
